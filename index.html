@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="id"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TrafficHub — Jual Traffic</title>
+<link rel="stylesheet" href="/style.css">
+</head><body>
+<header><div class="logo">Traffic<span>Hub</span></div><a href="#order">Pesan Traffic</a></header>
+<main>
+<section class="hero"><div><p class="tag">REAL TRAFFIC PLATFORM</p><h1>Jual traffic dengan sistem order yang rapi.</h1>
+<p class="sub">Pelanggan memilih paket, memasukkan URL tujuan, lalu mendapatkan ID order untuk dipantau.</p>
+<a class="btn" href="#order">Mulai Order</a></div><div class="card glow"><b>Dashboard</b><div class="metric">10.000</div><small>kunjungan paket Pro</small><div class="bar"><i></i></div></div></section>
+<section><h2>Pilih paket</h2><div id="packages" class="grid"></div></section>
+<section id="order" class="order"><div><h2>Buat order</h2><p>Masukkan website yang ingin dipromosikan.</p></div>
+<form id="form"><input name="customer" placeholder="Nama" required><input name="email" type="email" placeholder="Email" required>
+<input name="target_url" type="url" placeholder="https://website-kamu.com" required>
+<select name="package_id" id="package" required></select><button class="btn">Buat Order</button></form>
+<div id="result"></div></section>
+<section id="cek"><h2>Cek order</h2><div class="check"><input id="oid" placeholder="Contoh: A1B2C3D4E5"><button onclick="checkOrder()">Cek</button></div><pre id="status"></pre></section>
+</main><footer>TrafficHub © 2026 · Gunakan hanya sumber traffic yang sah dan tidak menipu.</footer>
+<script src="/app.js"></script></body></html>
