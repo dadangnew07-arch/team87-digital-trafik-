@@ -1,0 +1,22 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b0f19"><title>TEAM87 — Admin</title><style>
+:root{--bg:#0b0f19;--panel:#121a2a;--line:#29344b;--text:#f5f7fc;--muted:#9eabc0;--lime:#b8f36b;--red:#ff8998}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,Arial,sans-serif}.wrap{max-width:1100px;margin:auto;padding:20px}.head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:25px}.brand{font-weight:900;font-size:21px}.muted{color:var(--muted);font-size:12px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}.primary{background:var(--lime);color:#101522}.secondary{background:#202b40;color:var(--text);border:1px solid var(--line)}input,select,textarea{width:100%;background:#0d1320;color:var(--text);border:1px solid #303b52;border-radius:9px;padding:11px;font:inherit}label{font-size:12px;color:#cbd5e5;display:block;margin:10px 0 5px}h1{font-size:26px}h2{font-size:18px;margin:0 0 10px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.wide{grid-column:1/-1}.hidden{display:none!important}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:12px;min-width:700px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted)}.status{color:var(--lime)}.error{color:var(--red);white-space:pre-wrap;font-size:12px}.msg{color:var(--muted);font-size:12px;margin-top:8px}@media(max-width:750px){.wrap{padding:14px}.grid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.wide{grid-column:auto}.head{align-items:flex-start}}
+</style></head><body><main class="wrap">
+<header class="head"><div><div class="brand">TEAM87 / ADMIN</div><div class="muted">Kelola paket dan pesanan pelanggan</div></div><a href="./index.html" class="muted">← Toko</a></header>
+<section class="card" id="loginCard"><h1>Login admin</h1><p class="muted">Gunakan akun yang dibuat di Supabase Auth dan telah diberi akses admin melalui SQL.</p><form id="loginForm"><label>Email admin</label><input id="email" type="email" autocomplete="username" required><label>Password</label><input id="password" type="password" autocomplete="current-password" required><button class="btn primary" style="margin-top:14px" type="submit">Masuk</button><div id="loginMsg" class="error"></div></form></section>
+<section id="adminApp" class="hidden">
+<div class="head"><div><h1>Ringkasan pesanan</h1><div class="muted" id="who"></div></div><button id="logout" class="btn secondary">Keluar</button></div>
+<div class="grid">
+<section class="card"><h2>Tambah paket</h2><form id="packageForm"><div class="formgrid">
+<div class="wide"><label>Nama paket</label><input id="pName" required maxlength="80" placeholder="Contoh: Website Visits Basic"></div>
+<div class="wide"><label>Deskripsi</label><input id="pDesc" maxlength="250" placeholder="Deskripsi layanan yang benar-benar tersedia"></div>
+<div><label>Harga (IDR)</label><input id="pPrice" type="number" min="1" step="1" required></div>
+<div><label>Label unit</label><input id="pUnit" required maxlength="40" placeholder="1000 visits / paket"></div>
+<div><label>Minimum quantity</label><input id="pMin" type="number" min="1" value="1" required></div>
+<div><label>Maksimum quantity</label><input id="pMax" type="number" min="1" value="10" required></div>
+<div><label>Urutan</label><input id="pSort" type="number" value="0"></div>
+<div><label>Status</label><select id="pActive"><option value="true">Aktif / tampil</option><option value="false">Nonaktif</option></select></div></div><button class="btn primary" style="margin-top:14px" type="submit">Simpan paket</button><div id="packageMsg" class="msg"></div></form></section>
+<section class="card"><h2>Paket tersimpan</h2><div id="packagesList" class="muted">Memuat…</div></section>
+</div>
+<section class="card"><div class="head"><div><h2>Pesanan pelanggan</h2><div class="muted">Status pembayaran diperbarui oleh webhook Midtrans yang tervalidasi.</div></div><button class="btn secondary" id="refresh">Muat ulang</button></div><div id="orders" class="tablewrap">Memuat pesanan…</div><div id="ordersMsg" class="error"></div></section>
+</section></main>
+<script type="module" src="./admin.js"></script></body></html>
