@@ -1,8 +1,8 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 // Isi dua nilai ini setelah membuat project Supabase. Jangan pernah menaruh service_role key di frontend.
-const SUPABASE_URL = "ISI_SUPABASE_PROJECT_URL";
-const SUPABASE_ANON_KEY = "ISI_SUPABASE_ANON_KEY";
+const SUPABASE_URL = "https://lcdhlakkgdnpahrftcli.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_i_YZ-tiXpvwwuUhHmi8Wpw_4TD1mXGu";
 const configured = SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("ISI_") && !SUPABASE_ANON_KEY.includes("ISI_");
 const supabase = configured ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 const $ = id => document.getElementById(id);
